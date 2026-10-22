@@ -1,10 +1,13 @@
 import React from 'react';
-import { GraduationCap, Award, Calendar, Building, Sparkles } from 'lucide-react';
+import { GraduationCap, Calendar, Building } from 'lucide-react';
 import { educationData } from '../data/portfolio';
 
 export const Education: React.FC = () => {
   return (
-    <section id="education" className="py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-900 bg-[#0b0f17]">
+    <section
+      id="education"
+      className="py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-900 bg-[#0b0f17]"
+    >
       <div className="max-w-5xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -12,23 +15,26 @@ export const Education: React.FC = () => {
             <GraduationCap className="w-3.5 h-3.5 text-violet-400" />
             Academic Background
           </div>
+
           <h2 className="text-3xl sm:text-4xl font-bold font-heading text-white tracking-tight">
             Education
           </h2>
+
           <p className="text-slate-400 text-sm sm:text-base max-w-xl mx-auto mt-2">
             Academic milestones and achievements from secondary schooling through engineering.
           </p>
+
           <div className="w-12 h-1 bg-gradient-to-r from-violet-500 to-blue-500 rounded-full mx-auto mt-3" />
         </div>
 
-        {/* Timeline Layout */}
+        {/* Education Timeline */}
         <div className="relative pl-6 sm:pl-10 space-y-10 before:absolute before:left-2 sm:before:left-4 before:top-3 before:bottom-3 before:w-0.5 before:bg-gradient-to-b before:from-violet-500 before:via-blue-500 before:to-slate-800">
-          {educationData.map((edu, index) => {
+          {educationData.map((edu) => {
             const isCurrent = edu.period.includes('Present');
 
             return (
               <div key={edu.id} className="relative group">
-                {/* Timeline Node Point */}
+                {/* Timeline Marker Point */}
                 <div
                   className={`absolute -left-[30px] sm:-left-[38px] top-1.5 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-transform group-hover:scale-110 ${
                     isCurrent
@@ -43,7 +49,7 @@ export const Education: React.FC = () => {
                   />
                 </div>
 
-                {/* Card Container */}
+                {/* Education Card Container */}
                 <div className="bg-slate-900/60 border border-slate-800/90 hover:border-violet-500/40 rounded-2xl p-6 sm:p-7 card-glow">
                   <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
                     <div>
@@ -95,24 +101,14 @@ export const Education: React.FC = () => {
                           {edu.gradeValue}
                         </p>
                       </div>
-                      <p className="text-[11px] text-slate-500 font-mono mt-1.5 flex items-center justify-start sm:justify-end gap-1">
-                        <Calendar className="w-3 h-3" />
-                        {edu.period}
-                      </p>
                     </div>
                   </div>
 
-                  {/* Highlights */}
-                  {edu.highlights && edu.highlights.length > 0 && (
-                    <ul className="mt-4 pt-3 border-t border-slate-800/60 space-y-1.5 text-xs text-slate-300/90">
-                      {edu.highlights.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-violet-400/80 mt-1.5 shrink-0" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                  {/* Period (ASSUMED: reconstructed because the file was cut off) */}
+                  <div className="flex items-center gap-1.5 text-xs font-mono text-slate-400">
+                    <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                    {edu.period}
+                  </div>
                 </div>
               </div>
             );

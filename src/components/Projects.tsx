@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Sparkles, Layers, ArrowUpRight, Github, CheckCircle2, Clock, Info, ExternalLink, X } from 'lucide-react';
+import { Layers, ArrowUpRight, Github, CheckCircle2, Clock, Info, X } from 'lucide-react';
 import { projectsData } from '../data/portfolio';
-import { Project } from '../types';
+import type { Project } from '../types';
 
 export const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
